@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Reviews</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Reviews</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <script src="//use.typekit.net/uyz6xlp.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= yield %>
 
-</body>
+
+    <% if current_user %>
+
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Nilenso Reviews</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="<%= is_active?(root_path) %>"><%= link_to "Home", root_path %></li>
+            <li class="<%= is_active?(user_reviews_path(current_user)) %>"><%= link_to "My Dashboard", user_reviews_path(current_user) %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a>Signed in as <%= current_user.decorate.username %></a></li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+
+    <% end %>
+
+    <div class="container">
+
+      <%= yield %>
+
+    </div>
+
+  </body>
 </html>

@@ -1,0 +1,7 @@
+<h3>A Review from <%= @review.reviewer.decorate.username %> to <%= @review.reviewee.decorate.username %>
+  <% if @review.reviewer == current_user %>
+    <%= link_to "Edit", edit_user_review_path(current_user, @review), class: "btn btn-success btn-sm" %>
+  <% end %>
+</h3>
+
+<%= @review.markdown_text.html_safe %>

@@ -1,0 +1,13 @@
+<h3>Write a review for <%= @review.reviewee.decorate.username %></h3>
+
+<%= form_for [current_user, @review] do |f| %>
+  <%= f.label :text, "Review Text" %>
+  <%= f.text_area :text %>
+
+  <%= f.label :text, "Status (mark this done!)" %>
+  <div>
+    <%= f.select :status, Review.statuses.keys, class: "review-status-select" %>
+  </div>
+
+  <%= f.submit "Save Review", class: "btn btn-primary save-review-btn" %>
+<% end %>

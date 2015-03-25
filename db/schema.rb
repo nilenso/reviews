@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325052354) do
+ActiveRecord::Schema.define(version: 20150325090559) do
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "status",      limit: 4,     default: 0
+    t.integer  "reviewer_id", limit: 4
+    t.integer  "reviewee_id", limit: 4
+    t.text     "text",        limit: 65535
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  add_index "reviews", ["reviewee_id"], name: "index_reviews_on_reviewee_id", using: :btree
+  add_index "reviews", ["reviewer_id"], name: "index_reviews_on_reviewer_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",               limit: 255, default: "", null: false
@@ -29,4 +41,6 @@ ActiveRecord::Schema.define(version: 20150325052354) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "reviews", "users", column: "reviewee_id"
+  add_foreign_key "reviews", "users", column: "reviewer_id"
 end

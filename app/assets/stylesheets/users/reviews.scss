@@ -1,0 +1,47 @@
+nav {
+    font-family: "museo-slab";
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.navbar-brand {
+    font-family: "junction";
+}
+
+span.name {
+    font-weight: 500;
+}
+
+.review-list li {
+    margin: 5px 0;
+}
+
+.review-list li .icon {
+    font-size: 13px;
+}
+
+.review-list li .btn {
+}
+
+textarea#review_text {
+    width: 100%;
+    margin-bottom: 20px;
+    display: block;
+}
+
+h2 {
+    border-bottom: 4px solid #f8337d;
+}
+
+input[type='checkbox'] {
+    display: inline;
+}
+
+label {
+    margin-left: 5px;
+    font-weight: 400 !important;
+}
+
+.save-review-btn {
+    margin-top: 15px;
+}

@@ -13,4 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require react
+//= require react_ujs
+//= require jquery.fs.selecter
+//= require jquery.fs.stepper
+//= require icheck
+//= require components
 //= require_tree .

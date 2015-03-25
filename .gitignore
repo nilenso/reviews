@@ -13,3 +13,6 @@
 /tmp
 config/database.yml
 config/application.yml
+node_modules
+.com.apple.timemachine.supported
+.idea

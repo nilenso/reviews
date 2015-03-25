@@ -11,10 +11,14 @@ gem 'omniauth-google-oauth2'
 gem 'devise'
 gem 'thin'
 gem 'figaro'
+gem "bower-rails", "~> 0.9.2"
+gem "draper"
+gem "react-rails", github: "reactjs/react-rails"
+gem 'redcarpet'
+gem 'pg'
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
-

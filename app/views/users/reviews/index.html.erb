@@ -1,0 +1,35 @@
+<h2>My Reviews</h2>
+<h3>Reviews I Need to Write</h3>
+<ul>
+  <% Review.pending.where(reviewer: current_user).each do |review| %>
+    <li><%= link_to "Write a review for #{review.reviewee.decorate.username}", edit_user_review_path(current_user, review) %></li>
+  <% end %>
+</ul>
+<% if Review.pending.where(reviewer: current_user).empty? %>
+  <p>No reviews to write yet.</p>
+<% end %>
+
+
+<h3>Reviews I've Gotten</h3>
+<ul>
+  <% Review.done.where(reviewee: current_user).each do |review| %>
+    <li><%= link_to "From #{review.reviewer.decorate.username}", user_review_path(current_user, review) %></li>
+  <% end %>
+</ul>
+<% if Review.done.where(reviewee: current_user).empty? %>
+  <p>No reviews yet.</p>
+<% end %>
+
+<h2>Settings</h2>
+
+<h3>I Want to Get Reviews From</h3>
+<% @users.each do |user| %>
+  <%= react_component("AjaxCheckbox", checked: user.reviews_by.where(reviewee_id: current_user.id).present?,
+                      reviewer_id: user.id, reviewee_id: current_user.id, label: user.username) %>
+<% end %>
+
+<h3>I Want to Give Reviews To</h3>
+<% @users.each do |user| %>
+  <%= react_component("AjaxCheckbox", checked: user.reviews_for.where(reviewer_id: current_user.id).present?,
+                      reviewer_id: current_user.id, reviewee_id: user.id, label: user.username) %>
+<% end %>
