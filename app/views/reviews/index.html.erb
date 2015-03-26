@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <% User.decorate.each do |user| %>
+    <% User.order(:name).decorate.each do |user| %>
       <tr>
         <td><%= user.username %></td>
         <td>
