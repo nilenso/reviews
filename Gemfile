@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.1'
-gem 'mysql2'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -11,7 +10,6 @@ gem 'omniauth-google-oauth2'
 gem 'devise'
 gem 'thin'
 gem 'figaro'
-gem "bower-rails", "~> 0.9.2"
 gem "draper"
 gem "react-rails", github: "reactjs/react-rails"
 gem 'redcarpet'
