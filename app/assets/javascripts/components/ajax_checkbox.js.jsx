@@ -27,7 +27,7 @@ var AjaxCheckbox = React.createClass({
     }
 
     if(this.state.state == "loading") {
-      return ( <img src="/assets/small_spinner.gif" /> );
+      return ( <img src="/small_spinner.gif" /> );
     }
 
     return (
