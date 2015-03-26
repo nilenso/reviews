@@ -27,9 +27,3 @@
   <%= react_component("AjaxCheckbox", checked: user.reviews_by.where(reviewee_id: current_user.id).present?,
                       reviewer_id: user.id, reviewee_id: current_user.id, label: user.username) %>
 <% end %>
-
-<h3>I Want to Give Reviews To</h3>
-<% @users.each do |user| %>
-  <%= react_component("AjaxCheckbox", checked: user.reviews_for.where(reviewer_id: current_user.id).present?,
-                      reviewer_id: current_user.id, reviewee_id: user.id, label: user.username) %>
-<% end %>
