@@ -13,28 +13,31 @@
 
 ActiveRecord::Schema.define(version: 20150325090559) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "reviews", force: :cascade do |t|
-    t.integer  "status",      limit: 4,     default: 0
-    t.integer  "reviewer_id", limit: 4
-    t.integer  "reviewee_id", limit: 4
-    t.text     "text",        limit: 65535
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.integer  "status",      default: 0
+    t.integer  "reviewer_id"
+    t.integer  "reviewee_id"
+    t.text     "text"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "reviews", ["reviewee_id"], name: "index_reviews_on_reviewee_id", using: :btree
   add_index "reviews", ["reviewer_id"], name: "index_reviews_on_reviewer_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",               limit: 255, default: "", null: false
-    t.string   "name",                limit: 255
-    t.string   "image",               limit: 255
+    t.string   "email",               default: "", null: false
+    t.string   "name"
+    t.string   "image"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",       limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",       default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",  limit: 255
-    t.string   "last_sign_in_ip",     limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
