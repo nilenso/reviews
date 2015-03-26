@@ -2,6 +2,11 @@
 
 <%= form_for [current_user, @review] do |f| %>
   <%= f.label :text, "Review Text" %>
+  <span class="markdown-logo">
+    <a href="http://daringfireball.net/projects/markdown/basics" target="_blank">
+      <img src="/markdown.png" />
+    </a>
+  </span>
   <%= f.text_area :text %>
 
   <%= f.label :text, "Status (mark this done!)" %>
