@@ -12,7 +12,7 @@
     <% User.order(:name).decorate.each do |user| %>
       <tr>
         <td><%= user.username %></td>
-        <td>
+        <td class="<%= 'done' if (user.reviews_pending_for.empty? && user.reviews_done_for.present?) %>">
           <ul>
             <li>Needs to get reviews from <%= user.needs_reviews_from  %></li>
             <li>Has got reviews from <%= user.got_reviews_from.html_safe  %></li>
