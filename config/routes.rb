@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-
     resources :reviews, controller: "users/reviews"
-
   end
 end

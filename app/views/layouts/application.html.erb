@@ -23,6 +23,7 @@
           <ul class="nav navbar-nav">
             <li class="<%= is_active?(root_path) %>"><%= link_to "Home", root_path %></li>
             <li class="<%= is_active?(user_reviews_path(current_user)) %>"><%= link_to "My Dashboard", user_reviews_path(current_user) %></li>
+            <li class="<%= is_active?(users_path) %>"><%= link_to "Manage Users", users_path %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a>Signed in as <%= current_user.decorate.username %></a></li>

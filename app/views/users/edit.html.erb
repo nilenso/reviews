@@ -1,0 +1,9 @@
+<h3>Editing <%= @user.username %></h3>
+<%= form_for @user do |f| %>
+  <%= f.label "Salary" %>
+  <%= f.number_field :salary %>
+  <%= f.label "Level" %>
+  <%= f.text_field :level %>
+
+  <%= f.submit %>
+<% end %>
