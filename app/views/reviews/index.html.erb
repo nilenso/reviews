@@ -11,7 +11,14 @@
   <tbody>
     <% User.order(:name).decorate.each do |user| %>
       <tr>
-        <td><%= user.username %></td>
+        <td>
+          <%= user.username %>
+          <% if user.salary && user.level %>
+            <span class="salary-level">
+              (<%= user.salary_in_lakhs %> / Level <%= user.level %>)
+            </span>
+          <% end %>
+        </td>
         <td class="<%= 'done' if (user.reviews_pending_for.empty? && user.reviews_done_for.present?) %>">
           <ul>
             <li>Needs to get reviews from <%= user.needs_reviews_from  %></li>

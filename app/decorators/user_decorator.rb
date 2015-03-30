@@ -19,4 +19,8 @@ class UserDecorator < Draper::Decorator
 
     names.to_sentence.presence || "no one"
   end
+
+  def salary_in_lakhs
+    "#{user.salary / 100000}L"
+  end
 end
