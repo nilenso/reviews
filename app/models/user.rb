@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  validates :salary, numericality: true
+  validates :level, numericality: true
   devise :rememberable, :trackable, :omniauthable, :omniauth_providers => [:google_oauth2]
 
   has_many :reviews_for, class_name: Review, foreign_key: :reviewee_id

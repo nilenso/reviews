@@ -8,8 +8,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find(params[:id])
-    if user.update_attributes(user_params)
+    @user = User.find(params[:id]).decorate
+    if @user.update_attributes(user_params)
       redirect_to users_path, notice: "User updated!"
     else
       render :edit
