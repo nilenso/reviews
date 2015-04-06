@@ -1,6 +1,6 @@
 class Users::ReviewsController < ApplicationController
   def index
-    @users = current_user.all_but_me.decorate
+    @users = User.all.decorate
   end
 
   def edit
