@@ -22,7 +22,7 @@
         </td>
         <td>
           <% if current_user.can_view_average_suggested_level_for_user?(user) %>
-            <%= user.average_suggested_level %>
+            <%= number_with_precision(user.average_suggested_level, precision: 2) %>
           <% else %>
             <p>Hidden until you finish your review.</p>
           <% end %>
