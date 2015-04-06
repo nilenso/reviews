@@ -5,6 +5,7 @@
   <thead>
     <tr>
       <th>Person</th>
+      <th>Avg. Suggested Level</th>
       <th>Reviews</th>
     </tr>
   </thead>
@@ -17,6 +18,13 @@
             <span class="salary-level">
               (<%= user.salary_in_lakhs %> / Level <%= user.level %>)
             </span>
+          <% end %>
+        </td>
+        <td>
+          <% if current_user.can_view_average_suggested_level_for_user?(user) %>
+            <%= user.average_suggested_level %>
+          <% else %>
+            <p>Hidden until you finish your review.</p>
           <% end %>
         </td>
         <td class="<%= 'done' if (user.reviews_pending_for.empty? && user.reviews_done_for.present?) %>">

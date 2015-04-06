@@ -1,6 +1,7 @@
 <h3>Write a review for <%= @review.reviewee.decorate.username %></h3>
 
 <%= form_for [current_user, @review] do |f| %>
+  <fieldset>
   <%= f.label :text, "Review Text" %>
   <span class="markdown-logo">
     <a href="http://daringfireball.net/projects/markdown/basics" target="_blank">
@@ -8,11 +9,21 @@
     </a>
   </span>
   <%= f.text_area :text %>
+  </fieldset>
 
+  <fieldset>
+  <%= f.label :text, "Suggested Level" %>
+  <div>
+    <%= f.text_field :suggested_level, class: "review-status-select" %>
+  </div>
+  </fieldset>
+
+  <fieldset>
   <%= f.label :text, "Status (mark this done!)" %>
   <div>
     <%= f.select :status, Review.statuses.keys, class: "review-status-select" %>
   </div>
+  </fieldset>
 
   <%= f.submit "Save Review", class: "btn btn-primary save-review-btn" %>
 <% end %>

@@ -24,6 +24,6 @@ class Users::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:text, :status)
+    params.require(:review).permit(:text, :status, :suggested_level)
   end
 end

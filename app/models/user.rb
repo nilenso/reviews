@@ -28,4 +28,13 @@ class User < ActiveRecord::Base
   def reviews_done_for
     Review.done.where(reviewee: self)
   end
+
+  def average_suggested_level
+    self.reviews_for.done.average(:suggested_level)
+  end
+
+  def can_view_average_suggested_level_for_user?(user)
+    pending_reviews_for = self.reviews_by.pending.pluck(:reviewee_id)
+    !pending_reviews_for.include?(user.id)
+  end
 end
