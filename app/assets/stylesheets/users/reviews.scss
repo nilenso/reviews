@@ -27,10 +27,12 @@ span.name {
 .review-list li .btn {
 }
 
+// This is an overly specific CSS selector (see SMACSS)
 textarea#review_text {
     width: 100%;
     margin-bottom: 20px;
     display: block;
+    min-height: 250px;
 }
 
 h2 {
