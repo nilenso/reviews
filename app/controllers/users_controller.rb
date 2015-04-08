@@ -19,6 +19,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:salary, :level)
+    params.require(:user).permit(:salary, :level, :decided_level)
   end
 end

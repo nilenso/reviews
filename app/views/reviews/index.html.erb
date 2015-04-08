@@ -6,6 +6,7 @@
     <tr>
       <th>Person</th>
       <th>Avg. Suggested Level</th>
+      <th>Decided Level</th>
       <th>Reviews</th>
     </tr>
   </thead>
@@ -26,6 +27,9 @@
           <% else %>
             <p>Hidden until you finish your review.</p>
           <% end %>
+        </td>
+        <td>
+          <%= number_with_precision(user.decided_level, precision: 2) %>
         </td>
         <td class="<%= 'done' if (user.reviews_pending_for.empty? && user.reviews_done_for.present?) %>">
           <ul>
