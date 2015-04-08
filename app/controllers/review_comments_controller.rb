@@ -33,6 +33,13 @@ class ReviewCommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @review = Review.find(params[:review_id]).decorate
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to user_review_path(current_user, @review), notice: "Deleted!"
+  end
+
   private
 
   def comment_params
