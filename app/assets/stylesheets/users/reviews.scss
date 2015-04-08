@@ -28,7 +28,7 @@ span.name {
 }
 
 // This is an overly specific CSS selector (see SMACSS)
-textarea#review_text {
+textarea {
     width: 100%;
     margin-bottom: 20px;
     display: block;
@@ -69,4 +69,16 @@ td.done {
 
 .level_summary {
     margin-top: 25px;
+}
+
+.comment-button {
+    font-size: 10px;
+    margin-right: 10px;
+    margin-top: 0;
+}
+
+.comment {
+    border: 1px solid #aaa;
+    padding: 20px;
+    margin-top: 20px;
 }

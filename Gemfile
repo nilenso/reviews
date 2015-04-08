@@ -14,6 +14,7 @@ gem "draper"
 gem "react-rails", github: "reactjs/react-rails"
 gem 'redcarpet'
 gem 'pg'
+gem 'acts_as_commentable_with_threading'
 
 group :development, :test do
   gem 'byebug'

@@ -6,4 +6,9 @@ class ReviewDecorator < Draper::Decorator
     markdown = Redcarpet::Markdown.new(renderer)
     markdown.render(model.text || "")
   end
+
+  def render_comments
+    grouped_comments = self.grouped_comments
+    h.content_tag(:ul, grouped_comments[nil].map { |comment| comment.render_with_children(model, grouped_comments) }.join.html_safe)
+  end
 end

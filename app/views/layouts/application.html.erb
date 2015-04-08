@@ -14,28 +14,37 @@
 
     <% if current_user %>
 
-    <nav class="navbar navbar-default navbar-static-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">Nilenso Reviews</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="<%= is_active?(root_path) %>"><%= link_to "Home", root_path %></li>
-            <li class="<%= is_active?(user_reviews_path(current_user)) %>"><%= link_to "My Dashboard", user_reviews_path(current_user) %></li>
-            <li class="<%= is_active?(users_path) %>"><%= link_to "Manage Users", users_path %></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a>Signed in as <%= current_user.decorate.username %></a></li>
-          </ul>
-        </div>
+      <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">Nilenso Reviews</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="<%= is_active?(root_path) %>"><%= link_to "Home", root_path %></li>
+              <li class="<%= is_active?(user_reviews_path(current_user)) %>"><%= link_to "My Dashboard", user_reviews_path(current_user) %></li>
+              <li class="<%= is_active?(users_path) %>"><%= link_to "Manage Users", users_path %></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a>Signed in as <%= current_user.decorate.username %></a></li>
+            </ul>
+          </div>
 
-      </div>
-    </nav>
+        </div>
+      </nav>
 
     <% end %>
 
     <div class="container">
+
+      <% [:notice, :error, :alert].each do |level| %>
+        <% unless flash[level].blank? %>
+          <div class="alert <%= flash_class(level) %>">
+            <a class="close" href="#">×</a>
+            <%= content_tag :p, flash[level] %>
+          </div>
+        <% end %>
+      <% end %>
 
       <%= yield %>
 

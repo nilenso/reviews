@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "reviews#index"
 
   resources :reviews do
+    resources :comments, controller: :review_comments
     collection do
       delete :destroy
     end

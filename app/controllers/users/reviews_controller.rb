@@ -9,6 +9,7 @@ class Users::ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id]).decorate
+    @comment = Comment.build_from(@review, current_user.id, nil)
   end
 
   def update
