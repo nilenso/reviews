@@ -1,0 +1,6 @@
+<h2>Edit Comment</h2>
+<%= form_for @comment, url: comment_path(@comment, commentable_type: params[:commentable_type], commentable_id: @commentable.id), method: :put do |f| %>
+  <%= f.text_area :body %>
+  <%= hidden_field_tag 'commentable_id', @commentable.id %>
+  <%= f.submit %>
+<% end %>

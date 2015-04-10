@@ -13,9 +13,9 @@
 <% if @review.root_comments.present? %>
   <h2>
     Comments
-    <%= link_to "Add", new_review_comment_path(@review) %>
+    <%= link_to "Add", new_comment_path(commentable_type: 'review', commentable_id: @review.id) %>
   </h2>
   <%= @review.render_comments %>
 <% else %>
-  <h4><%= link_to "Add Comment", new_review_comment_path(@review) %></h4>
+  <h4><%= link_to "Add Comment", new_comment_path(commentable_type: 'review', commentable_id: @review.id) %></h4>
 <% end %>

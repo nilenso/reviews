@@ -1,6 +1,7 @@
 <h2>Add Comment</h2>
-<%= form_for [@review, @comment], method: :post do |f| %>
+<%= form_for @comment, method: :post do |f| %>
   <%= f.text_area :body %>
   <%= f.text_field :parent_id, hidden: true %>
+  <%= hidden_field_tag 'commentable_id', @commentable.id %>
   <%= f.submit %>
 <% end %>

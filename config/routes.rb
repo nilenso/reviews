@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root to: "reviews#index"
 
+  scope ':commentable_type' do
+    resources :comments
+  end
+
   resources :reviews do
-    resources :comments, controller: :review_comments
     collection do
       delete :destroy
     end

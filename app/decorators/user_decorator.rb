@@ -23,4 +23,9 @@ class UserDecorator < Draper::Decorator
   def salary_in_lakhs
     "#{user.salary / 100000}L"
   end
+
+  def render_comments
+    grouped_comments = self.grouped_comments
+    h.content_tag(:ul, grouped_comments[nil].map { |comment| comment.render_with_children(model, grouped_comments) }.join.html_safe)
+  end
 end

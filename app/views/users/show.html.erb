@@ -1,0 +1,29 @@
+<h2>
+  <%= @user.username %>
+  <%= link_to "Edit", edit_user_path(@user), class: "btn btn-success btn-sm" %>
+</h2>
+
+
+<h3>Reviews <%= @user.username %> has got</h3>
+<ul>
+<% @user.reviews_for.done.each do |review| %>
+  <li><%= link_to review.reviewer.decorate.username, user_review_path(current_user, review) %></li>
+<% end %>
+</ul>
+
+<h3>Reviews <%= @user.username %> has given</h3>
+<ul>
+<% @user.reviews_by.done.each do |review| %>
+  <li><%= link_to review.reviewee.decorate.username, user_review_path(current_user, review) %></li>
+<% end %>
+</ul>
+
+<% if @user.root_comments.present? %>
+  <h2>
+    Comments
+    <%= link_to "Add", new_comment_path(commentable_id: @user.id, commentable_type: 'user') %>
+  </h2>
+  <%= @user.render_comments %>
+<% else %>
+  <h4><%= link_to "Add Comment", new_comment_path(commentable_id: @user.id, commentable_type: 'user') %></h4>
+<% end %>

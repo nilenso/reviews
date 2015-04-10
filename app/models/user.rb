@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  acts_as_commentable
   validates :salary, numericality: true
   validates :level, numericality: true
   devise :rememberable, :trackable, :omniauthable, :omniauth_providers => [:google_oauth2]
@@ -36,5 +37,9 @@ class User < ActiveRecord::Base
   def can_view_average_suggested_level_for_user?(user)
     pending_reviews_for = self.reviews_by.pending.pluck(:reviewee_id)
     !pending_reviews_for.include?(user.id)
+  end
+
+  def grouped_comments
+    self.comment_threads.decorate.group_by(&:parent_id)
   end
 end

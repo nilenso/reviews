@@ -3,6 +3,10 @@ class UsersController < ApplicationController
     @users = User.all.decorate
   end
 
+  def show
+    @user = User.find(params[:id]).decorate
+  end
+
   def edit
     @user = User.find(params[:id]).decorate
   end
