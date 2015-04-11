@@ -14,7 +14,7 @@
     <% User.order(:name).decorate.each do |user| %>
       <tr>
         <td>
-          <%= user.username %>
+          <%= link_to user.username, user_path(user) %>
           <% if user.salary && user.level %>
             <span class="salary-level">
               (<%= user.salary_in_lakhs %> / Level <%= user.level %>)
