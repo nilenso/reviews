@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 
     user.image = data["image"]
     user.name = data["first_name"]
+    user.salary = 0
+    user.level = 0
     user.save
 
     user
