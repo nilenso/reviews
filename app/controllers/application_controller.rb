@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def ensure_user_logged_in
     unless current_user
-      redirect_to Rails.application.routes.url_helpers.user_omniauth_authorize_path(:google_oauth2)
+      redirect_to Rails.application.routes.url_helpers.user_google_oauth2_omniauth_authorize_path
     end
   end
 end
