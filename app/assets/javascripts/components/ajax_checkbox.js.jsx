@@ -13,7 +13,7 @@ var AjaxCheckbox = React.createClass({
   },
 
   handleClick: function() {
-    if($(this.refs.checkbox.getDOMNode()).is(":checked")) {
+    if($(ReactDOM.findDOMNode(this.refs.checkbox)).is(":checked")) {
       createReview(this.props.reviewer_id, this.props.reviewee_id,this.success, this.error);
     } else {
       destroyReview(this.props.reviewer_id, this.props.reviewee_id, this.success, this.error);
