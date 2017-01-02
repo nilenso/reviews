@@ -2,6 +2,7 @@ class Review < ActiveRecord::Base
   acts_as_commentable
   belongs_to :reviewer, class_name: User
   belongs_to :reviewee, class_name: User
+  belongs_to :review_year, class_name: ReviewYear
 
   enum status: [:pending, :done]
 

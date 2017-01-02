@@ -1,11 +1,14 @@
 class ReviewsController < ApplicationController
 
-
   def index
   end
 
   def create
-    Review.create(review_params)
+    current_year = Time.now.year.to_s
+    review_year = ReviewYear.find_or_create_by :name => current_year
+    review = Review.new(review_params)
+    review.review_year = review_year
+    review.save
     render json: {status: :ok}
   end
 

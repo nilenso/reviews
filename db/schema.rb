@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408083619) do
+ActiveRecord::Schema.define(version: 20170102064743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,12 @@ ActiveRecord::Schema.define(version: 20150408083619) do
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
+  create_table "review_years", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer  "status",                                    default: 0
     t.integer  "reviewer_id"
@@ -41,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150408083619) do
     t.datetime "created_at",                                            null: false
     t.datetime "updated_at",                                            null: false
     t.decimal  "suggested_level", precision: 100, scale: 2
+    t.integer  "review_year_id"
   end
 
   add_index "reviews", ["reviewee_id"], name: "index_reviews_on_reviewee_id", using: :btree
@@ -65,6 +72,7 @@ ActiveRecord::Schema.define(version: 20150408083619) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "reviews", "review_years"
   add_foreign_key "reviews", "users", column: "reviewee_id"
   add_foreign_key "reviews", "users", column: "reviewer_id"
 end

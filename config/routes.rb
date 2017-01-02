@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :review_years
   root to: "reviews#index"
 
   scope ':commentable_type' do
