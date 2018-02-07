@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.3.4'
 gem 'rails', '4.2.1'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -15,6 +16,7 @@ gem "react-rails", github: "reactjs/react-rails"
 gem 'redcarpet'
 gem 'pg'
 gem 'acts_as_commentable_with_threading'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'byebug'

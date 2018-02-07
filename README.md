@@ -1,3 +1,27 @@
 # Reviews
 
 - Rails app to do internal reviews at Nilenso.
+
+### Dev setup
+```bash
+rbenv install 2.3.4
+gem install bundler
+bundle install
+```
+
+### Deployment guide
+* Create an app on Heroku.
+* Add the Heroku Postgres add-on under the Resources tab.
+* Go to the Deploy tab and set the Heroku git remote as instructed.
+* Log in to https://console.developers.google.com using your nilenso e-mail.
+* Create a project under the nilenso organization, to manage OAuth credentials for the app.
+* Enable the Contacts API and the Google+ API for the project.
+* Under the Credentials tab, create a new "Client ID for Web Application".
+* You'll be asked to enter the authorized Javascript origin and the redirect URI. The redirect path 
+for the app is `/users/auth/google_oauth2/callback`. Thus, the redirect URI will look something like 
+`http[s]://domain.com/users/auth/google_oauth2/callback`.
+* After you save, you will be presented with a client ID and a client secret. On the Heroku 
+dashboard under Settings, add the `google_client_id` and `google_client_secret` config variables. 
+* Run `bundle exec rake secret` to generate a secret key. On the Heroku dashboard, add it under the 
+`secret_key_base` config variable.
+* Run `git push heroku master` to deploy. That's it!
