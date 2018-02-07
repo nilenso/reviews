@@ -16,4 +16,4 @@ config/application.yml
 node_modules
 .com.apple.timemachine.supported
 .idea
-.DS_Store
+.DS_Store.DS_Store
