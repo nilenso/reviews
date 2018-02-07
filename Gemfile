@@ -14,7 +14,7 @@ gem 'figaro'
 gem "draper"
 gem "react-rails", github: "reactjs/react-rails"
 gem 'redcarpet'
-gem 'pg'
+gem 'pg', '~> 0.21.0'
 gem 'acts_as_commentable_with_threading'
 gem 'rails_12factor'
 
