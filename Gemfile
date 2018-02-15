@@ -12,7 +12,7 @@ gem 'devise'
 gem 'thin'
 gem 'figaro'
 gem "draper"
-gem "react-rails", github: "reactjs/react-rails"
+gem 'react-rails', '~>1.10.0'
 gem 'redcarpet'
 gem 'pg', '~> 0.21.0'
 gem 'acts_as_commentable_with_threading'
