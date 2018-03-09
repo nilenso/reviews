@@ -10,10 +10,7 @@
   </head>
   <body>
 
-
-
     <% if current_user %>
-
       <nav class="navbar navbar-default navbar-static-top">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -36,7 +33,6 @@
     <% end %>
 
     <div class="container">
-
       <% [:notice, :error, :alert].each do |level| %>
         <% unless flash[level].blank? %>
           <div class="alert <%= flash_class(level) %>">

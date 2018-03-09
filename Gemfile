@@ -11,7 +11,7 @@ gem 'omniauth-google-oauth2', '~> 0.5.3'
 gem 'devise'
 gem 'thin'
 gem 'figaro'
-gem "draper"
+gem 'draper'
 gem 'react-rails', '~>1.10.0'
 gem 'redcarpet'
 gem 'pg', '~> 0.21.0'
@@ -22,4 +22,5 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'better_errors'
 end

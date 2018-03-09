@@ -9,7 +9,7 @@ class UserDecorator < Draper::Decorator
     names = user.reviews_pending_for.map do |review|
       review.reviewer.decorate.username
     end
-    names.to_sentence.presence || "no one"
+    names.to_sentence.presence || 'no one'
   end
 
   def got_reviews_from
@@ -17,7 +17,15 @@ class UserDecorator < Draper::Decorator
       h.link_to review.reviewer.decorate.username, h.user_review_path(h.current_user, review.id)
     end
 
-    names.to_sentence.presence || "no one"
+    names.to_sentence.presence || 'no one'
+  end
+
+  def needs_to_write_reviews_for
+    names = user.needs_to_write_reviews_for.map do |review|
+      h.link_to review.reviewee.decorate.username, h.edit_user_review_path(user, review)
+    end
+
+    names.to_sentence.presence
   end
 
   def salary_in_lakhs

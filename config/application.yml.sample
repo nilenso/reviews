@@ -1,0 +1,7 @@
+db_host: "localhost"
+db_user: "postgres"
+db_password:
+db_pool: "5"
+db_name: "reviews"
+
+secret_key_base: ""

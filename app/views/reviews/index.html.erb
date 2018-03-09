@@ -1,43 +1,52 @@
-<h3>Reviews</h3>
+<% unless current_user.needs_to_write_reviews_for.blank? %>
+  <div class="pending-reviews">
+    <blockquote class="pending-reviews">
+      <b>Pending reviews to write:</b>
+      <%= current_user.needs_to_write_reviews_for.html_safe %>
+    </blockquote>
+  </div>
+<% end %>
 
+<h3>Reviews</h3>
 
 <table class="table table-bordered">
   <thead>
-    <tr>
-      <th>Person</th>
-      <th>Avg. Suggested Level</th>
-      <th>Decided Level</th>
-      <th>Reviews</th>
-    </tr>
+  <tr>
+    <th>Person</th>
+    <th>Avg. suggested level</th>
+    <th>Decided level</th>
+    <th>Reviews</th>
+  </tr>
   </thead>
   <tbody>
-    <% User.order(:name).decorate.each do |user| %>
-      <tr>
-        <td>
-          <%= link_to user.username, user_path(user) %>
-          <% if user.salary && user.level %>
+  <% User.order(:name).decorate.each do |user| %>
+    <tr>
+      <td>
+        <%= image_tag user.image, size: '64' %>
+        <%= link_to user.username, user_path(user) %>
+        <% if user.salary && user.level %>
             <span class="salary-level">
               (<%= user.salary_in_lakhs %> / Level <%= user.level %>)
             </span>
-          <% end %>
-        </td>
-        <td>
-          <% if current_user.can_view_average_suggested_level_for_user?(user) %>
-            <%= number_with_precision(user.average_suggested_level, precision: 2) %>
-          <% else %>
-            <p>Hidden until you finish your review.</p>
-          <% end %>
-        </td>
-        <td>
-          <%= number_with_precision(user.decided_level, precision: 2) %>
-        </td>
-        <td class="<%= 'done' if (user.reviews_pending_for.empty? && user.reviews_done_for.present?) %>">
-          <ul>
-            <li>Needs to get reviews from <%= user.needs_reviews_from  %></li>
-            <li>Has got reviews from <%= user.got_reviews_from.html_safe  %></li>
-          </ul>
-        </td>
-      </tr>
-    <% end %>
+        <% end %>
+      </td>
+      <td>
+        <% if current_user.can_view_average_suggested_level_for_user?(user) %>
+          <%= number_with_precision(user.average_suggested_level, precision: 2) %>
+        <% else %>
+          <p>Hidden until you finish your review.</p>
+        <% end %>
+      </td>
+      <td>
+        <%= number_with_precision(user.decided_level, precision: 2) %>
+      </td>
+      <td class="<%= 'done' if (user.reviews_pending_for.empty? && user.reviews_done_for.present?) %>">
+        <ul>
+          <li>Needs to get reviews from <%= user.needs_reviews_from %></li>
+          <li>Has got reviews from <%= user.got_reviews_from.html_safe %></li>
+        </ul>
+      </td>
+    </tr>
+  <% end %>
   </tbody>
 </table>

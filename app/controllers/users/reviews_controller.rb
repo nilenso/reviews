@@ -13,6 +13,12 @@ class Users::ReviewsController < ApplicationController
   end
 
   def update
+    if params.key?(:pending)
+      params[:review].merge!(status: 'pending')
+    elsif params.key?(:done)
+      params[:review].merge!(status: 'done')
+    end
+
     @review = Review.find(params[:id])
     @review.assign_attributes(review_params)
     if @review.save

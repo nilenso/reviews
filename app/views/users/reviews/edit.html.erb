@@ -18,14 +18,8 @@
   </div>
   </fieldset>
 
-  <fieldset>
-  <%= f.label :text, "Status (mark this done!)" %>
-  <div>
-    <%= f.select :status, Review.statuses.keys, class: "review-status-select" %>
-  </div>
-  </fieldset>
-
-  <%= f.submit "Save Review", class: "btn btn-primary save-review-btn" %>
+  <%= f.submit "Save As Draft / Unpublish", class: "btn btn-primary draft-review-btn", name: :pending %>
+  <%= f.submit "Publish", class: "btn btn-primary save-review-btn", name: :done %>
 <% end %>
 
 <blockquote class="level_summary">

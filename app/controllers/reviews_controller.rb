@@ -22,5 +22,4 @@ class ReviewsController < ApplicationController
   def review_params
     params.permit(:reviewer_id, :reviewee_id)
   end
-
 end
