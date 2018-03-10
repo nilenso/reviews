@@ -16,7 +16,13 @@ var AjaxCheckbox = React.createClass({
     if($(ReactDOM.findDOMNode(this.refs.checkbox)).is(":checked")) {
       createReview(this.props.reviewer_id, this.props.reviewee_id,this.success, this.error);
     } else {
-      destroyReview(this.props.reviewer_id, this.props.reviewee_id, this.success, this.error);
+      let answer = confirm("This will destroy " + this.props.label + "'s review (if any), continue?");
+
+      if (answer === true) {
+        destroyReview(this.props.reviewer_id, this.props.reviewee_id, this.success, this.error);
+      } else {
+        return true;
+      }
     }
     this.setState({state: "loading"});
   },

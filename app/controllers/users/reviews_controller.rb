@@ -13,10 +13,14 @@ class Users::ReviewsController < ApplicationController
   end
 
   def update
-    updated_review_params = update_if_level_only_review(update_status(review_params))
-
     @review = Review.find(params[:id])
-    @review.assign_attributes(updated_review_params)
+
+    if params.key?(:abstain)
+      @review.destroy!
+      redirect_to :root, notice: 'Review removed successfully!' and return
+    end
+
+    @review.assign_attributes(update_if_level_only_review(update_status(review_params)))
 
     if @review.save
       redirect_to :root, notice: 'Review saved successfully!'
@@ -29,7 +33,7 @@ class Users::ReviewsController < ApplicationController
 
   def update_if_level_only_review(review_params)
     if review_params[:text].strip.blank? && !review_params[:suggested_level].blank?
-      review_params.merge!(is_level_only: true)
+      review_params.merge(is_level_only: true)
     else
       review_params.merge!(is_level_only: false)
     end

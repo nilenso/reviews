@@ -18,7 +18,8 @@
   </div>
   </fieldset>
 
-  <%= f.submit "Save As Draft / Unpublish", class: "btn btn-primary draft-review-btn", name: :pending %>
+  <%= f.submit "Abstain from reviewing", class: "btn btn-warning save-review-btn", name: :abstain, data: { confirm: 'This will destroy your drafted review, continue?' } %>
+  <%= f.submit "Save As Draft / Unpublish", class: "btn btn-info save-review-btn", name: :pending %>
   <%= f.submit "Publish", class: "btn btn-primary save-review-btn", name: :done %>
 <% end %>
 
