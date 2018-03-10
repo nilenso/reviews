@@ -4,12 +4,14 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    current_year = Time.now.year.to_s
-    review_year = ReviewYear.find_or_create_by :name => current_year
-    review = Review.new(review_params)
-    review.review_year = review_year
-    review.save
+    updated_review_params = update_params_with_review_year(review_params)
+    Review.find_or_create_by updated_review_params
     render json: {status: :ok}
+  end
+
+  def update_params_with_review_year(review_params)
+    current_year = Time.now.year.to_s
+    review_params.merge!(review_year: ReviewYear.find_or_create_by(name: current_year))
   end
 
   def destroy
