@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
 
   def stdev_suggested_level
     suggested_level = self.reviews_for.done.map(&:suggested_level)
-    suggested_level.stdev if suggested_level.present? && suggested_level.count > 1
+    suggested_level.compact.stdev if suggested_level.present? && suggested_level.count > 1
   end
 
   def can_view_suggested_level_for_user?(user)
