@@ -30,6 +30,8 @@ class Users::ReviewsController < ApplicationController
   def update_if_level_only_review(review_params)
     if review_params[:text].strip.blank? && !review_params[:suggested_level].blank?
       review_params.merge!(is_level_only: true)
+    else
+      review_params.merge!(is_level_only: false)
     end
 
     review_params
