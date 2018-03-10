@@ -7,17 +7,20 @@ class User < ActiveRecord::Base
   has_many :reviews_for, class_name: Review, foreign_key: :reviewee_id
   has_many :reviews_by, class_name: Review, foreign_key: :reviewer_id
 
-  def self.find_for_google_oauth2(access_token, signed_in_resource = nil)
+  def self.find_for_google_oauth2(access_token, _ = nil)
     data = access_token.info
-    user = User.where(:email => data['email']).first_or_initialize
-
-    user.image = data['image']
-    user.name = data['first_name']
-    user.salary = 0
-    user.level = 0
+    user = User.where(:email => data['email']).first_or_initialize(new_user_params(data))
     user.save
-
     user
+  end
+
+  def self.new_user_params(data)
+    {
+        image: data['image'],
+        name: data['first_name'],
+        salary: 0,
+        level: 0
+    }
   end
 
   def all_but_me
@@ -32,6 +35,10 @@ class User < ActiveRecord::Base
     Review.done.where(reviewee: self)
   end
 
+  def needs_to_write_reviews_for
+    Review.pending.where(reviewer: self)
+  end
+
   def only_full_reviews_done_for
     Review.done.where(reviewee: self, is_level_only: false)
   end
@@ -40,15 +47,11 @@ class User < ActiveRecord::Base
     Review.done.where(reviewee: self, is_level_only: true)
   end
 
-  def needs_to_write_reviews_for
-    Review.pending.where(reviewer: self)
-  end
-
   def average_suggested_level
     self.reviews_for.done.average(:suggested_level)
   end
 
-  def standard_deviation_suggested_level
+  def stdev_suggested_level
     suggested_level = self.reviews_for.done.map(&:suggested_level)
     suggested_level.stdev if suggested_level.count > 1
   end

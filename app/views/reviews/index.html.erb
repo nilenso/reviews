@@ -37,7 +37,7 @@
             <%= number_with_precision(user.average_suggested_level, precision: 2) %>
           <% end %>
           <br/>
-          <% unless user.standard_deviation_suggested_level.blank? %>
+          <% unless user.stdev_suggested_level.blank? %>
             <b>Standard deviation:&nbsp;</b>
             <%= number_with_precision(user.standard_deviation_suggested_level, precision: 2) %>
           <% end %>
