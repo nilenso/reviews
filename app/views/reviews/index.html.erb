@@ -39,7 +39,7 @@
           <br/>
           <% unless user.stdev_suggested_level.blank? %>
             <b>Standard deviation:&nbsp;</b>
-            <%= number_with_precision(user.standard_deviation_suggested_level, precision: 2) %>
+            <%= number_with_precision(user.stdev_suggested_level, precision: 2) %>
           <% end %>
         <% else %>
           <p>Hidden until you finish your review.</p>
