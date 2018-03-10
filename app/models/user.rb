@@ -32,6 +32,14 @@ class User < ActiveRecord::Base
     Review.done.where(reviewee: self)
   end
 
+  def only_full_reviews_done_for
+    Review.done.where(reviewee: self, is_level_only: false)
+  end
+
+  def only_review_levels_done_for
+    Review.done.where(reviewee: self, is_level_only: true)
+  end
+
   def needs_to_write_reviews_for
     Review.pending.where(reviewer: self)
   end

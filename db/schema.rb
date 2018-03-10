@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170102064743) do
+ActiveRecord::Schema.define(version: 20180310063710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,10 +44,11 @@ ActiveRecord::Schema.define(version: 20170102064743) do
     t.integer  "reviewer_id"
     t.integer  "reviewee_id"
     t.text     "text"
-    t.datetime "created_at",                                            null: false
-    t.datetime "updated_at",                                            null: false
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
     t.decimal  "suggested_level", precision: 100, scale: 2
     t.integer  "review_year_id"
+    t.boolean  "is_level_only",                             default: false
   end
 
   add_index "reviews", ["reviewee_id"], name: "index_reviews_on_reviewee_id", using: :btree

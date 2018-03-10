@@ -13,7 +13,15 @@ class UserDecorator < Draper::Decorator
   end
 
   def got_reviews_from
-    names = user.reviews_done_for.map do |review|
+    names = user.only_full_reviews_done_for.map do |review|
+      h.link_to review.reviewer.decorate.username, h.user_review_path(h.current_user, review.id)
+    end
+
+    names.to_sentence.presence || 'no one'
+  end
+
+  def got_levels_from
+    names = user.only_review_levels_done_for.map do |review|
       h.link_to review.reviewer.decorate.username, h.user_review_path(h.current_user, review.id)
     end
 
