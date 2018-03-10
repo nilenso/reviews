@@ -13,7 +13,7 @@
   <thead>
   <tr>
     <th>Person</th>
-    <th>Avg. suggested level</th>
+    <th>Suggested level</th>
     <th>Decided level</th>
     <th>Reviews</th>
   </tr>
@@ -31,8 +31,16 @@
         <% end %>
       </td>
       <td>
-        <% if current_user.can_view_average_suggested_level_for_user?(user) %>
-          <%= number_with_precision(user.average_suggested_level, precision: 2) %>
+        <% if current_user.can_view_suggested_level_for_user?(user) %>
+          <% unless user.average_suggested_level.blank? %>
+            <b>Average:&nbsp;</b>
+            <%= number_with_precision(user.average_suggested_level, precision: 2) %>
+          <% end %>
+          <br/>
+          <% unless user.standard_deviation_suggested_level.blank? %>
+            <b>Standard deviation:&nbsp;</b>
+            <%= number_with_precision(user.standard_deviation_suggested_level, precision: 2) %>
+          <% end %>
         <% else %>
           <p>Hidden until you finish your review.</p>
         <% end %>

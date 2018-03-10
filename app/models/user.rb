@@ -48,7 +48,12 @@ class User < ActiveRecord::Base
     self.reviews_for.done.average(:suggested_level)
   end
 
-  def can_view_average_suggested_level_for_user?(user)
+  def standard_deviation_suggested_level
+    suggested_level = self.reviews_for.done.map(&:suggested_level)
+    suggested_level.stdev if suggested_level.count > 1
+  end
+
+  def can_view_suggested_level_for_user?(user)
     pending_reviews_for = self.reviews_by.pending.pluck(:reviewee_id)
     !pending_reviews_for.include?(user.id)
   end
