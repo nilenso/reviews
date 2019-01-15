@@ -1,7 +1,14 @@
 source 'https://rubygems.org'
 
 ruby '2.3.4'
-gem 'rails', '4.2.7.1'
+gem 'rails', '4.2.11'
+
+# gem 'rack', '>= 1.6.11'
+# gem 'ffi', '>= 1.9.24'
+# gem 'sprockets', '>= 3.7.2'
+# gem 'rails-html-sanitizer', '>= 1.0.4'
+# gem 'loofah', '>= 2.2.3'
+
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
