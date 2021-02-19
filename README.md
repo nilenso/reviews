@@ -4,9 +4,10 @@
 
 ### Dev setup
 ```bash
-rbenv install 2.3.4
-gem install bundler
+rbenv install 2.4.5
+gem install bundler -v 1.17.3
 bundle install
+gem install thin -v '1.7.2' --source 'https://rubygems.org/' -- --with-cflags="-Wno-error=implicit-function-declaration" # may be necessary on newer macOS versions ref. https://github.com/macournoyer/thin/pull/364
 ```
 
 ### Deployment guide
