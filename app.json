@@ -33,9 +33,6 @@
   "formation": {
     "web": {
       "quantity": 1
-    },
-    "worker": {
-      "quantity": 1
     }
   },
   "name": "reviews",
