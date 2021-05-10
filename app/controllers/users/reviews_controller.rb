@@ -23,7 +23,7 @@ class Users::ReviewsController < ApplicationController
     @review.assign_attributes(update_if_level_only_review(update_status(review_params)))
 
     if @review.save
-      redirect_to :root, notice: 'Review saved successfully!'
+      redirect_to user_review_path(current_user, @review.id), notice: 'Review saved successfully!'
     else
       render :edit
     end
