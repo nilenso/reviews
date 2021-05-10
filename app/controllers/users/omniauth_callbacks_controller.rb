@@ -1,5 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  skip_before_filter :ensure_user_logged_in
+  skip_before_action :ensure_user_logged_in
 
   def new_session_path(scope)
     new_user_session_path

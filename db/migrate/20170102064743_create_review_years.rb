@@ -1,4 +1,4 @@
-class CreateReviewYears < ActiveRecord::Migration
+class CreateReviewYears < ActiveRecord::Migration[4.2]
   def change
     create_table :review_years do |t|
       t.text :name

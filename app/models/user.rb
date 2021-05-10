@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   validates :level, numericality: true
   devise :rememberable, :trackable, :omniauthable, :omniauth_providers => [:google_oauth2]
 
-  has_many :reviews_for, class_name: Review, foreign_key: :reviewee_id
-  has_many :reviews_by, class_name: Review, foreign_key: :reviewer_id
+  has_many :reviews_for, class_name: "Review", foreign_key: :reviewee_id
+  has_many :reviews_by, class_name: "Review", foreign_key: :reviewer_id
 
   def self.find_for_google_oauth2(access_token, _ = nil)
     data = access_token.info
