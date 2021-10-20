@@ -4,7 +4,7 @@
 
 ### Dev setup
 ```bash
-rbenv install 2.3.4
+rbenv install 2.7.2
 gem install bundler
 bundle install
 ```

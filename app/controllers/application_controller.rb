@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_filter :ensure_user_logged_in
+  before_action :ensure_user_logged_in
 
   def current_user
     UserDecorator.decorate(super) unless super.nil?
