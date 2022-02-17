@@ -150,6 +150,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.1-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.1-x86_64-linux)
+      racc (~> 1.4)
     oauth2 (1.4.7)
       faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
@@ -267,6 +269,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   acts_as_commentable_with_threading
@@ -282,6 +285,7 @@ DEPENDENCIES
   pg (~> 0.21.0)
   rails (= 5.2.4.5)
   rails_12factor
+  rake
   react-rails (~> 1.10.0)
   redcarpet
   ruby_native_statistics
