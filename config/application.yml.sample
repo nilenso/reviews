@@ -1,7 +1,7 @@
-db_host: "localhost"
-db_user: "postgres"
-db_password:
-db_pool: "5"
-db_name: "reviews"
+db_host: <%= ENV["db_host"] %>
+db_user: <%= ENV["db_user"] %>
+db_password: <%= ENV["db_password"] %>
+db_pool: <%= ENV["db_pool"] %>
+db_name: <%= ENV["db_name"] %>
 
 secret_key_base: ""
