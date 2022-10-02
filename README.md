@@ -31,3 +31,8 @@ dashboard under Settings, add the `google_client_id` and `google_client_secret` 
 * We use heroku Review Apps (not to be confused with the name of this repo itself) to generate new installs of the reviews apps
 * This is done by making a pull request on this repo, which in turn auto-creates a new instance for the app
 * For consistency, please name these PRs as "create-new-for-<year>"
+
+
+#### Since March 2022
+* We have shifted to use render.com since Heroku became unusable in India.
+* The steps for creating a new install for this app are the same. Refer to "Since 2019" section of this README.
