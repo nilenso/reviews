@@ -41,5 +41,5 @@
   "name": "reviews",
   "scripts": {
   },
-  "stack": "heroku-16"
+  "stack": "heroku-20"
 }

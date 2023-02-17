@@ -14,3 +14,7 @@ development:
 test:
   <<: *default
   database: reviews_test
+
+production:
+  <<: *default
+  database: <%= ENV["db_name"] %>
