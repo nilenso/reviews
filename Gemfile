@@ -19,7 +19,6 @@ gem 'pg', '~> 0.21.0'
 gem 'acts_as_commentable_with_threading'
 gem 'rails_12factor'
 gem 'ruby_native_statistics'
-gem 'mimemagic'
 
 group :development, :test do
   gem 'byebug'

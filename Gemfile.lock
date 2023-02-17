@@ -286,7 +286,6 @@ DEPENDENCIES
   draper
   figaro
   jquery-rails
-  mimemagic
   omniauth (= 1.9.1)
   omniauth-google-oauth2 (= 0.7.0)
   pg (~> 0.21.0)
