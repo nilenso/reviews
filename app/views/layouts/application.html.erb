@@ -38,9 +38,9 @@
     <div class="container main-content">
       <% [:notice, :error, :alert].each do |level| %>
         <% unless flash[level].blank? %>
-          <div class="alert <%= flash_class(level) %>">
-            <a class="close" href="#">×</a>
-            <%= content_tag :p, flash[level] %>
+          <div class="alert <%= flash_class(level) %> alert-dismissible" role="alert">
+            <%= content_tag :span, flash[level] %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         <% end %>
       <% end %>

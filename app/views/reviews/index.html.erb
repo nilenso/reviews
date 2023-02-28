@@ -33,12 +33,12 @@
       <td>
         <% if current_user.can_view_suggested_level_for_user?(user) %>
           <% unless user.average_suggested_level.blank? %>
-            <b>Average:&nbsp;</b>
+            Average:&nbsp;
             <%= number_with_precision(user.average_suggested_level, precision: 2) %>
           <% end %>
           <br/>
           <% unless user.stdev_suggested_level.blank? %>
-            <b>Standard deviation:&nbsp;</b>
+            Standard deviation:&nbsp;
             <%= number_with_precision(user.stdev_suggested_level, precision: 2) %>
           <% end %>
         <% else %>
