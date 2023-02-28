@@ -1,9 +1,115 @@
-// Place all the styles related to the reviews controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.main-content {
+  max-width: 1170px !important;
+}
 
-.pending-reviews {
+nav {
+  font-family: "museo-slab";
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 30px;
+  background-color: #f8337d;
+}
 
+.navbar-brand {
+  font-family: "junction";
+}
+
+span.name {
+  font-weight: 500;
+}
+
+.review-list li {
+  margin: 5px 0;
+}
+
+.review-list li .icon {
+  font-size: 13px;
+}
+
+.review-list li .btn {
+}
+
+td.done {
+  background-color: #E1FF94;
+}
+
+.edit_review fieldset {
+  margin: 25px 0;
+}
+
+// This is an overly specific CSS selector (see SMACSS)
+textarea {
+  width: 100%;
+  margin-bottom: 20px;
+  display: block;
+  min-height: 500px;
+}
+
+h2 {
+  border-bottom: 4px solid #f8337d;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+input[type='checkbox'] {
+  display: inline;
+}
+
+label {
+  margin-left: 5px;
+  font-weight: 400 !important;
+}
+
+.save-review-btn {
+  margin-top: 15px;
+}
+
+.draft-review-btn {
+  background-color: orange !important;
+  border-color: orange !important;
+  margin-top: 15px;
+}
+
+.draft-review-btn:hover {
+  background-color: darkorange !important;
+}
+
+.markdown-logo img {
+  width: 25px;
+  margin: 0 0 3px 2px;
+}
+
+
+.salary-level {
+  font-style: italic;
+  font-size: 16px;
+  color: #aaa;
+}
+
+.level_summary {
+  margin-top: 25px;
+}
+
+.comment-button {
+  font-size: 10px;
+  margin-right: 10px;
+  margin-top: 0;
+}
+
+.comment {
+  border: 1px solid #aaa;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.comment-author {
+  font-size: 1.5rem;
+  margin-right: 10px;
+  vertical-align: middle;
 }
 
 blockquote.pending-reviews {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-bs-theme="dark">
   <head>
     <title><%= yield(:title).presence || "Reviews" %></title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -10,21 +10,23 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-
     <% if current_user %>
-      <nav class="navbar navbar-default navbar-static-top">
+      <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="/">Nilenso Reviews</a>
+            <a class="navbar-brand" href="/">nilenso reviews</a>
           </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li class="<%= is_active?(root_path) %>"><%= link_to "Home", root_path %></li>
-              <li class="<%= is_active?(user_reviews_path(current_user)) %>"><%= link_to "My Dashboard", user_reviews_path(current_user) %></li>
-              <li class="<%= is_active?(users_path) %>"><%= link_to "Users", users_path %></li>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapsible">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar-collapsible">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+              <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link #{is_active?(root_path)}" %></li>
+              <li class="nav-item"><%= link_to "My Dashboard", user_reviews_path(current_user), class: "nav-link #{is_active?(user_reviews_path(current_user))}" %></li>
+              <li class="nav-item"><%= link_to "Users", users_path, class: "nav-link #{is_active?(users_path)}" %></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a>Signed in as <%= current_user.decorate.username %></a></li>
+              <li class="nav-item nav-link">Signed in as <%= current_user.decorate.username %></li>
             </ul>
           </div>
 
@@ -33,7 +35,7 @@
 
     <% end %>
 
-    <div class="container">
+    <div class="container main-content">
       <% [:notice, :error, :alert].each do |level| %>
         <% unless flash[level].blank? %>
           <div class="alert <%= flash_class(level) %>">
