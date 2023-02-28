@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="<%= current_user.settings(:color_scheme).theme %>">
+<html data-bs-theme="<%= current_user.settings(:user_settings).color_scheme %>">
   <head>
     <title><%= yield(:title).presence || "Reviews" %></title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
