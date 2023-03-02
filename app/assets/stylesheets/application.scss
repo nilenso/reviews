@@ -1,5 +1,5 @@
 $font-family-base: "brandon-grotesque", "helvetica", "sans-serif";
-$font-size-base: 1.25rem;
+$font-size-base: 1.1rem;
 
 $headings-font-family: "museo-slab";
 $headings-font-weight: 500;
@@ -10,4 +10,5 @@ $body-color-dark: #dedede;
 
 @import "bootstrap";
 @import "reviews";
+@import "reviews-light";
 @import "reviews-dark";

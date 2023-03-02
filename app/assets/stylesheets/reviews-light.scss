@@ -1,0 +1,10 @@
+[data-bs-theme="light"] {
+  a.nav-link {
+    color: white;
+  }
+
+  a.nav-link.active {
+    color: white;
+    background-color: #d70755;
+  }
+}
