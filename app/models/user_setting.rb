@@ -7,9 +7,5 @@ class UserSetting < RailsSettings::SettingObject
     }
   end
 
-  validate do
-    unless COLOR_SCHEMES.values.include?(self.color_scheme)
-      errors.add(:color_scheme, "should be one of #{COLOR_SCHEMES.values.to_sentence}")
-    end
-  end
+  validates :color_scheme, :inclusion=> { :in => COLOR_SCHEMES.values }
 end
