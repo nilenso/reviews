@@ -12,6 +12,22 @@ nav {
 
 .navbar-brand {
   font-family: "junction";
+  color: white;
+}
+
+a.navbar-brand:hover {
+  color: white;
+}
+
+[data-bs-theme="light"] {
+  a.nav-link {
+    color: white;
+  }
+
+  a.nav-link.active {
+    color: white;
+    background-color: #d70755;
+  }
 }
 
 span.name {
@@ -64,6 +80,10 @@ label {
   font-weight: 400 !important;
 }
 
+.form-control {
+  border: 1px solid #ccc;
+}
+
 .save-review-btn {
   margin-top: 15px;
 }
@@ -112,9 +132,11 @@ label {
   vertical-align: middle;
 }
 
-blockquote.pending-reviews {
+.pending-reviews {
+  border-left: 4px solid;
   border-color: #DBDBCC;
   background-color: #fff9ef;
   padding: 14px;
   width: 572px;
+  margin-bottom: 25px;
 }

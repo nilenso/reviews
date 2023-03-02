@@ -13,8 +13,10 @@
 
   <fieldset>
   <%= f.label :text, "Suggested Level" %>
-  <div>
-    <%= f.text_field :suggested_level, class: "review-status-select" %>
+  <div class="row">
+    <div class="col-auto">
+      <%= f.text_field :suggested_level, class: "form-control review-status-select" %>
+    </div>
   </div>
   </fieldset>
 

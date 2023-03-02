@@ -4,7 +4,16 @@
     border-bottom: 3px dotted #f8337d;
   }
 
+  .navbar-brand {
+    color: #f8337d;
+  }
+
   td.done {
     background-color: #0e5132;
+  }
+
+  .pending-reviews {
+    border-color: #DBDBCC;
+    background-color: #4e4411;
   }
 }

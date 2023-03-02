@@ -1,9 +1,7 @@
 <% unless current_user.needs_to_write_reviews_for.blank? %>
   <div class="pending-reviews">
-    <blockquote class="pending-reviews">
-      <b>Pending reviews to write:</b>
-      <%= current_user.needs_to_write_reviews_for.html_safe %>
-    </blockquote>
+    <b>Pending reviews to write:</b>
+    <%= current_user.needs_to_write_reviews_for.html_safe %>
   </div>
 <% end %>
 
