@@ -1,22 +1,21 @@
+body {
+  font-family: "Aleo";
+}
+
 .main-content {
-  max-width: 1170px !important;
+  max-width: 1000px !important;
+  min-height: 1000px;
 }
 
 nav {
-  font-family: "museo-slab";
+  font-family: "Poppins";
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 30px;
-  background-color: #f8337d;
-}
-
-.navbar-brand {
-  font-family: "junction";
-  color: white;
-}
-
-a.navbar-brand:hover {
-  color: white;
+  background-color: transparent;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 span.name {
@@ -51,7 +50,7 @@ textarea {
 }
 
 h2 {
-  border-bottom: 4px solid #f8337d;
+  border-bottom: 4px solid #ff3d84;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
 }
