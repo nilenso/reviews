@@ -1,11 +1,15 @@
 [data-bs-theme="dark"] {
   nav {
     background: transparent;
-    border-bottom: 3px dotted #f8337d;
   }
 
   .navbar-brand {
+    color: #ff3d84;
+  }
+
+  .nav-link .active {
     color: #f8337d;
+    font-weight: 600;
   }
 
   td.done {
