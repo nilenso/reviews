@@ -5,7 +5,7 @@ class CommentDecorator < Draper::Decorator
     renderer = Redcarpet::Render::HTML.new
     markdown = Redcarpet::Markdown.new(renderer)
     markdown.render(model.body || "")
-  en
+  end
 
   def render_with_children(commentable, all_comments)
     children = all_comments[self.id]
