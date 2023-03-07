@@ -59,6 +59,10 @@ a {
   text-decoration: none;
 }
 
+a.btn {
+  color: white;
+}
+
 input[type='checkbox'] {
   display: inline;
 }
@@ -103,7 +107,7 @@ label {
 }
 
 .comment-button {
-  font-size: 10px;
+  font-size: 14px;
   margin-right: 10px;
   margin-top: 0;
 }
@@ -115,7 +119,6 @@ label {
 }
 
 .comment-author {
-  font-size: 1.5rem;
   margin-right: 10px;
   vertical-align: middle;
 }

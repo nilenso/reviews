@@ -2,7 +2,7 @@
 
 <h2>A Review from <%= @review.reviewer.decorate.username %> to <%= @review.reviewee.decorate.username %>
   <% if @review.reviewer == current_user %>
-    <%= link_to "Edit", edit_user_review_path(current_user, @review), class: "btn btn-success btn-sm" %>
+    <%= link_to "Edit", edit_user_review_path(current_user, @review), class: "btn btn-dark btn-sm" %>
   <% end %>
 </h2>
 
