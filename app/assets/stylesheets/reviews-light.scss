@@ -1,0 +1,18 @@
+[data-bs-theme="light"] {
+  .navbar-brand {
+    color: #f8337d;
+  }
+
+  .nav-link .active {
+    color: #f8337d;
+    font-weight: 600;
+  }
+
+  a.nav-link {
+    color: black;
+  }
+
+  a.nav-link.active {
+    color: black;
+  }
+}

@@ -1,29 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html data-bs-theme="<%= current_user.settings(:user_settings).color_scheme %>">
   <head>
     <title><%= yield(:title).presence || "Reviews" %></title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <script src="//use.typekit.net/uyz6xlp.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aleo:wght@400;700&ital@0;1&family=Poppins:wght@300;400;500;700&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
   </head>
   <body>
-
     <% if current_user %>
-      <nav class="navbar navbar-default navbar-static-top">
+      <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="/">Nilenso Reviews</a>
+            <a class="navbar-brand" href="/">nilenso reviews</a>
           </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li class="<%= is_active?(root_path) %>"><%= link_to "Home", root_path %></li>
-              <li class="<%= is_active?(user_reviews_path(current_user)) %>"><%= link_to "My Dashboard", user_reviews_path(current_user) %></li>
-              <li class="<%= is_active?(users_path) %>"><%= link_to "Users", users_path %></li>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapsible">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar-collapsible">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+              <li class="nav-item"><%= link_to "H<span class='#{is_active?(root_path)}'>o</span>me".html_safe, root_path, class: "nav-link #{is_active?(root_path)}" %></li>
+              <li class="nav-item"><%= link_to "My Dashb<span class='#{is_active?(user_reviews_path(current_user))}'>o</span>ard".html_safe, user_reviews_path(current_user), class: "nav-link #{is_active?(user_reviews_path(current_user))}" %></li>
+              <li class="nav-item"><%= link_to "<span class='#{is_active?(users_path)}'>U</span>sers".html_safe, users_path, class: "nav-link #{is_active?(users_path)}" %></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a>Signed in as <%= current_user.decorate.username %></a></li>
+              <li class="nav-item nav-link">Signed in as <%= current_user.decorate.username %></li>
             </ul>
           </div>
 
@@ -32,12 +34,12 @@
 
     <% end %>
 
-    <div class="container">
+    <div class="container main-content">
       <% [:notice, :error, :alert].each do |level| %>
         <% unless flash[level].blank? %>
-          <div class="alert <%= flash_class(level) %>">
-            <a class="close" href="#">×</a>
-            <%= content_tag :p, flash[level] %>
+          <div class="alert <%= flash_class(level) %> alert-dismissible" role="alert">
+            <%= content_tag :span, flash[level] %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         <% end %>
       <% end %>

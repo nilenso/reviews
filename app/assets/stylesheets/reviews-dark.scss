@@ -1,0 +1,27 @@
+[data-bs-theme="dark"] {
+  nav {
+    background: transparent;
+  }
+
+  .navbar-brand {
+    color: #ff3d84;
+  }
+
+  .nav-link .active {
+    color: #f8337d;
+    font-weight: 600;
+  }
+
+  td.done {
+    background-color: #0e5132;
+  }
+
+  .pending-reviews {
+    border-color: #DBDBCC;
+    background-color: #4e4411;
+  }
+
+  .markdown-logo img {
+    filter: invert(1);
+  }
+}

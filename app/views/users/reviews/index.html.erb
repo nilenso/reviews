@@ -27,3 +27,22 @@
   <%= react_component("AjaxCheckbox", checked: user.reviews_by.where(reviewee_id: current_user.id).present?,
                       reviewer_id: user.id, reviewee_id: current_user.id, label: user.username) %>
 <% end %>
+<br>
+
+<h3>Theme</h3>
+<%= form_tag(user_settings_path, method: "put") do %>
+  <% UserSetting::COLOR_SCHEMES.values.each do |color_scheme| %>
+  <div class="form-check">
+    <%= radio_button_tag(
+          :color_scheme,
+          color_scheme,
+          current_user.settings(:user_settings).color_scheme == color_scheme,
+          class: "form-check-input",
+          onclick: "this.form.submit();"
+        ) %>
+    <%= label_tag("color_scheme_#{color_scheme}", color_scheme.humanize, class: "form-check-label") %>
+  </div>
+  <% end %>
+<% end %>
+
+<br><br>

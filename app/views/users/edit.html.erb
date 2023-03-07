@@ -1,11 +1,21 @@
 <h3>Editing <%= @user.username %></h3>
 <%= form_for @user do |f| %>
-  <%= f.label "Salary" %>
-  <%= f.number_field :salary %>
-  <%= f.label "Old Level" %>
-  <%= f.text_field :level %>
-  <%= f.label "Decided Level" %>
-  <%= f.text_field :decided_level %>
-
-  <%= f.submit %>
+  <div class="row g-3">
+    <div class="col-sm-3">
+      <%= f.label "Salary" %>
+      <%= f.number_field :salary, class: "form-control" %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.label "Old Level" %>
+      <%= f.text_field :level, class: "form-control" %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.label "Decided Level" %>
+      <%= f.text_field :decided_level, class: "form-control form-inline" %>
+    </div>
+    <div class="col-sm-3">
+      <br>
+      <%= f.submit "Update user", class: "form-control btn btn-secondary" %>
+    </div>
+  </div>
 <% end %>

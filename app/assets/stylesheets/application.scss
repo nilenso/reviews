@@ -1,38 +1,13 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
+$font-size-base: 1.1rem;
 
- *= require_self
- */
-
-@font-face {
-    font-family: 'Glyphicons Halflings';
-    src: font-url('../assets/bootstrap/glyphicons-halflings-regular.eot');
-    src: font-url('../assets/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
-    font-url('../assets/bootstrap/glyphicons-halflings-regular.woff') format('woff'),
-    font-url('../assets/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'),
-    font-url('../assets/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
-}
-
-$font-family-base: "brandon-grotesque", "helvetica", "sans-serif";
-$font-size-base: 20px;
-
-$headings-font-family: "museo-slab";
+$headings-font-family: "Aleo";
 $headings-font-weight: 500;
 
-$navbar-default-bg: #f8337d;
-$navbar-default-link-color: #fff;
-$navbar-default-link-active-color: #fff;
-$navbar-default-link-active-bg: darken($navbar-default-bg, 15%);
+$blue: #198de2;
+$body-bg-dark: #212121; // or #2b2b2b
+$body-color-dark: #e3e3e3;
 
-@import "_bootstrap";
+@import "bootstrap";
+@import "reviews";
+@import "reviews-light";
+@import "reviews-dark";

@@ -8,13 +8,15 @@
       <img src="/markdown.png" />
     </a>
   </span>
-  <%= f.text_area :text %>
+  <%= f.text_area :text, class: "form-control" %>
   </fieldset>
 
   <fieldset>
   <%= f.label :text, "Suggested Level" %>
-  <div>
-    <%= f.text_field :suggested_level, class: "review-status-select" %>
+  <div class="row">
+    <div class="col-auto">
+      <%= f.text_field :suggested_level, class: "form-control review-status-select" %>
+    </div>
   </div>
   </fieldset>
 
@@ -128,6 +130,6 @@
     <li>can handle multiple projects</li>
     <li>sets technical direction based on business requirements</li>
     <li>reviews cross-platform changes</li>
-    <li>pitches new products (can be within a project) and processes</li
+    <li>pitches new products (can be within a project) and processes</li>
   </ul>  
 </blockquote>
