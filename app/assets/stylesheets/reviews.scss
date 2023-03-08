@@ -99,11 +99,19 @@ label {
   margin: 0 0 3px 2px;
 }
 
+td.user-salary-level {
+  width: auto;
+}
+
+td.user-salary-level.td-wrap-width {
+  width: 1%;
+  white-space: nowrap;
+  padding-right: 15px;
+}
 
 .salary-level {
-  font-style: italic;
   font-size: 16px;
-  color: #aaa;
+  color: #999;
 }
 
 .level_summary {
