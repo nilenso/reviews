@@ -20,12 +20,12 @@
           </button>
           <div class="collapse navbar-collapse" id="navbar-collapsible">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
-              <li class="nav-item"><%= link_to "H<span class='#{is_active?(root_path)}'>o</span>me".html_safe, root_path, class: "nav-link #{is_active?(root_path)}" %></li>
-              <li class="nav-item"><%= link_to "My Dashb<span class='#{is_active?(user_reviews_path(current_user))}'>o</span>ard".html_safe, user_reviews_path(current_user), class: "nav-link #{is_active?(user_reviews_path(current_user))}" %></li>
-              <li class="nav-item"><%= link_to "<span class='#{is_active?(users_path)}'>U</span>sers".html_safe, users_path, class: "nav-link #{is_active?(users_path)}" %></li>
+              <li class="nav-item"><%= link_to "h<span class='#{is_active?(root_path)}'>o</span>me".html_safe, root_path, class: "nav-link #{is_active?(root_path)}" %></li>
+              <li class="nav-item"><%= link_to "my dashb<span class='#{is_active?(user_reviews_path(current_user))}'>o</span>ard".html_safe, user_reviews_path(current_user), class: "nav-link #{is_active?(user_reviews_path(current_user))}" %></li>
+              <li class="nav-item"><%= link_to "<span class='#{is_active?(users_path)}'>u</span>sers".html_safe, users_path, class: "nav-link #{is_active?(users_path)}" %></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li class="nav-item nav-link">Signed in as <%= current_user.decorate.username %></li>
+              <li class="nav-item nav-link">signed in as <%= current_user.decorate.username %></li>
             </ul>
           </div>
 

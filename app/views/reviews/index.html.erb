@@ -19,10 +19,12 @@
   <tbody>
   <% User.order(:name).decorate.each do |user| %>
     <tr>
-      <td>
-        <%= image_tag user.image, size: '64' %>
+      <td class="user-salary-level td-wrap-width">
+        <%= image_tag user.image, size: '64', style: "margin-bottom: 5px" %>
+        <br>
         <%= link_to user.username, user_path(user) %>
         <% if user.salary && user.level %>
+          <br>
             <span class="salary-level">
               (<%= user.salary_in_lakhs %> / Level <%= user.level %>)
             </span>

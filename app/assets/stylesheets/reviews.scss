@@ -9,13 +9,15 @@ body {
 
 nav {
   font-family: "Poppins";
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 400;
-  margin-bottom: 30px;
   background-color: transparent;
   max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 5px auto 30px;
+}
+
+.navbar-brand {
+  font-size: 18px;
 }
 
 span.name {
@@ -59,6 +61,10 @@ a {
   text-decoration: none;
 }
 
+a.btn {
+  color: white;
+}
+
 input[type='checkbox'] {
   display: inline;
 }
@@ -91,11 +97,19 @@ label {
   margin: 0 0 3px 2px;
 }
 
+td.user-salary-level {
+  width: auto;
+}
+
+td.user-salary-level.td-wrap-width {
+  width: 1%;
+  white-space: nowrap;
+  padding-right: 15px;
+}
 
 .salary-level {
-  font-style: italic;
   font-size: 16px;
-  color: #aaa;
+  color: #999;
 }
 
 .level_summary {
@@ -103,7 +117,7 @@ label {
 }
 
 .comment-button {
-  font-size: 10px;
+  font-size: 14px;
   margin-right: 10px;
   margin-top: 0;
 }
@@ -115,7 +129,6 @@ label {
 }
 
 .comment-author {
-  font-size: 1.5rem;
   margin-right: 10px;
   vertical-align: middle;
 }
